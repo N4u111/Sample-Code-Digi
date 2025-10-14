@@ -1,0 +1,44 @@
+{
+  "name": "microservices-sample-project",
+  "version": "1.0.0",
+  "description": "Sample microservices project with API Gateway and User Service",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start:all:dev": "concurrently \"npm run start:api-gateway:dev\" \"npm run start:user-service:dev\"",
+    "start:api-gateway:dev": "cd api-gateway && npm run start:dev",
+    "start:user-service:dev": "cd user-service && npm run start:dev",
+    "build:all": "npm run build:api-gateway && npm run build:user-service",
+    "build:api-gateway": "cd api-gateway && npm run build",
+    "build:user-service": "cd user-service && npm run build",
+    "install:all": "npm run install:api-gateway && npm run install:user-service",
+    "install:api-gateway": "cd api-gateway && npm install",
+    "install:user-service": "cd user-service && npm install",
+    "clean:all": "npm run clean:api-gateway && npm run clean:user-service",
+    "clean:api-gateway": "cd api-gateway && rm -rf dist node_modules",
+    "clean:user-service": "cd user-service && rm -rf dist node_modules",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:build": "docker-compose build",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart",
+    "test:all": "npm run test:api-gateway && npm run test:user-service",
+    "start:user-integration": "node start-user-integration.js",
+    "test:api-gateway": "cd api-gateway && npm run test",
+    "test:user-service": "cd user-service && npm run test",
+    "lint:all": "npm run lint:api-gateway && npm run lint:user-service",
+    "lint:api-gateway": "cd api-gateway && npm run lint",
+    "lint:user-service": "cd user-service && npm run lint",
+    "format:all": "npm run format:api-gateway && npm run format:user-service",
+    "format:api-gateway": "cd api-gateway && npm run format",
+    "format:user-service": "cd user-service && npm run format"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "api-gateway",
+    "user-service"
+  ]
+}
