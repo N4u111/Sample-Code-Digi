@@ -42,7 +42,6 @@ let UserMessageController = class UserMessageController {
             return {
                 success: false,
                 message: error.message,
-                error: error.message,
             };
         }
     }
@@ -59,7 +58,6 @@ let UserMessageController = class UserMessageController {
             return {
                 success: false,
                 message: error.message,
-                error: error.message,
             };
         }
     }
@@ -76,7 +74,6 @@ let UserMessageController = class UserMessageController {
             return {
                 success: false,
                 message: error.message,
-                error: error.message,
             };
         }
     }
@@ -93,7 +90,6 @@ let UserMessageController = class UserMessageController {
             return {
                 success: false,
                 message: error.message,
-                error: error.message,
             };
         }
     }
@@ -109,16 +105,8 @@ let UserMessageController = class UserMessageController {
             return {
                 success: false,
                 message: error.message,
-                error: error.message,
             };
         }
-    }
-    async test() {
-        return {
-            success: true,
-            message: 'Test message from RabbitMQ',
-            timestamp: new Date().toISOString(),
-        };
     }
 };
 exports.UserMessageController = UserMessageController;
@@ -156,12 +144,6 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UserMessageController.prototype, "delete", null);
-__decorate([
-    (0, microservices_1.MessagePattern)('user.test'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], UserMessageController.prototype, "test", null);
 exports.UserMessageController = UserMessageController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [create_user_usecase_1.CreateUserUseCase,

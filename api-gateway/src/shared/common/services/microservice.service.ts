@@ -64,7 +64,6 @@ export class MicroserviceService implements OnModuleInit {
   ): Promise<ApiResponse<T>> {
     try {
       const client = this.getClient(serviceName);
-      console.log('serviceName', serviceName);
       const response = await client.send(pattern, data).toPromise();
       this.logger.log(`Request to ${serviceName}:${pattern} - Success`);
       return {

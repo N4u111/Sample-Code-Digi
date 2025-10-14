@@ -42,18 +42,6 @@ let UserController = class UserController {
             }, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    async test() {
-        return 'test';
-        try {
-            return await this.userService.test();
-        }
-        catch (error) {
-            throw new common_1.HttpException({
-                message: 'Failed to test',
-                error: error.message,
-            }, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
     async findOne(id) {
         try {
             return await this.userService.getUserById(id);
@@ -103,12 +91,6 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)('test'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], UserController.prototype, "test", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

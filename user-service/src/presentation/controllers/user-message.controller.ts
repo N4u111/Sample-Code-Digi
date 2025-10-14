@@ -30,7 +30,6 @@ export class UserMessageController {
       return {
         success: false,
         message: error.message,
-        error: error.message,
       };
     }
   }
@@ -48,7 +47,6 @@ export class UserMessageController {
       return {
         success: false,
         message: error.message,
-        error: error.message,
       };
     }
   }
@@ -66,7 +64,6 @@ export class UserMessageController {
       return {
         success: false,
         message: error.message,
-        error: error.message,
       };
     }
   }
@@ -84,7 +81,6 @@ export class UserMessageController {
       return {
         success: false,
         message: error.message,
-        error: error.message,
       };
     }
   }
@@ -101,9 +97,7 @@ export class UserMessageController {
       return {
         success: false,
         message: error.message,
-        error: error.message,
       };
     }
   }
-
 }

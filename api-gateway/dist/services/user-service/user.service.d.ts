@@ -4,7 +4,6 @@ export declare class UserService {
     private readonly microserviceService;
     private readonly logger;
     constructor(microserviceService: MicroserviceService);
-    test(): Promise<string>;
     createUser(createUserDto: CreateUserDto): Promise<UserResponseDto>;
     getAllUsers(): Promise<UserResponseDto[]>;
     getUserById(id: string): Promise<UserResponseDto>;

@@ -2,17 +2,22 @@ import { HealthService } from './health.service';
 export declare class HealthController {
     private readonly healthService;
     constructor(healthService: HealthService);
-    getHealth(): Promise<{
-        apiGateway: {
-            status: string;
-            timestamp: string;
-        };
-        authService: import("../../shared/common/interfaces/microservice.interface").ApiResponse;
-        userService: import("../../shared/common/interfaces/microservice.interface").ApiResponse;
-    }>;
-    getSimpleHealth(): Promise<{
+    check(): {
         status: string;
-        service: string;
         timestamp: string;
-    }>;
+        uptime: number;
+    };
+    detailedCheck(): {
+        status: string;
+        timestamp: string;
+        uptime: number;
+        memory: NodeJS.MemoryUsage;
+        version: string;
+        platform: NodeJS.Platform;
+        services: {
+            apiGateway: string;
+            userService: string;
+            rabbitmq: string;
+        };
+    };
 }

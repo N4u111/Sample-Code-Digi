@@ -11,14 +11,15 @@ const common_1 = require("@nestjs/common");
 const infrastructure_module_1 = require("../infrastructure/infrastructure.module");
 const rollback_module_1 = require("./use-cases/rollback/rollback.module");
 const user_module_1 = require("./use-cases/user/user.module");
+const auth_module_1 = require("./use-cases/auth/auth.module");
 let ApplicationModule = class ApplicationModule {
 };
 exports.ApplicationModule = ApplicationModule;
 exports.ApplicationModule = ApplicationModule = __decorate([
     (0, common_1.Module)({
-        imports: [infrastructure_module_1.InfrastructureModule, rollback_module_1.RollbackModule, user_module_1.UserModule],
+        imports: [infrastructure_module_1.InfrastructureModule, rollback_module_1.RollbackModule, user_module_1.UserModule, auth_module_1.AuthModule],
         providers: [],
-        exports: [rollback_module_1.RollbackModule, user_module_1.UserModule],
+        exports: [rollback_module_1.RollbackModule, user_module_1.UserModule, auth_module_1.AuthModule],
     })
 ], ApplicationModule);
 //# sourceMappingURL=application.module.js.map

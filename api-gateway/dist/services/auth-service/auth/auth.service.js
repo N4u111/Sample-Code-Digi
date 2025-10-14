@@ -8,46 +8,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var AuthService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const microservice_service_1 = require("../../../shared/common/services/microservice.service");
-let AuthService = AuthService_1 = class AuthService {
+const microservice_config_1 = require("../../../shared/common/config/microservice.config");
+let AuthService = class AuthService {
     constructor(microserviceService) {
         this.microserviceService = microserviceService;
-        this.logger = new common_1.Logger(AuthService_1.name);
     }
-    async validateToken(validateTokenDto) {
-        this.logger.log('Validating token with auth microservice');
+    async validateToken(tokenData) {
         try {
-            const response = await this.microserviceService.sendRequest('AUTH_SERVICE', 'auth.validateToken', validateTokenDto, 5000);
+            const response = await this.microserviceService.sendRequest(microservice_config_1.USER_SERVICE, 'auth.validate-token', tokenData, 5000);
             if (!response.success) {
-                this.logger.warn(`Token validation failed: ${response.message}`);
-                return {
-                    success: false,
-                    message: response.message || 'Token validation failed',
-                    data: undefined,
-                };
+                throw new common_1.UnauthorizedException('Invalid token');
             }
-            return {
-                success: true,
-                message: 'Token validated successfully',
-                data: response.data,
-            };
+            return response;
         }
         catch (error) {
-            this.logger.error('Error validating token:', error.message);
-            return {
-                success: false,
-                message: 'Token validation error',
-                data: undefined,
-            };
+            throw new common_1.UnauthorizedException('Token validation failed');
         }
     }
 };
 exports.AuthService = AuthService;
-exports.AuthService = AuthService = AuthService_1 = __decorate([
+exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [microservice_service_1.MicroserviceService])
 ], AuthService);

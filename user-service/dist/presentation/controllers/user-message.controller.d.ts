@@ -22,11 +22,9 @@ export declare class UserMessageController {
             createdAt: Date;
             updatedAt: Date;
         };
-        error?: undefined;
     } | {
         success: boolean;
         message: any;
-        error: any;
         data?: undefined;
     }>;
     findAll(): Promise<{
@@ -40,11 +38,9 @@ export declare class UserMessageController {
             createdAt: Date;
             updatedAt: Date;
         }[];
-        error?: undefined;
     } | {
         success: boolean;
         message: any;
-        error: any;
         data?: undefined;
     }>;
     findById(data: {
@@ -60,11 +56,9 @@ export declare class UserMessageController {
             createdAt: Date;
             updatedAt: Date;
         };
-        error?: undefined;
     } | {
         success: boolean;
         message: any;
-        error: any;
         data?: undefined;
     }>;
     update(data: {
@@ -81,27 +75,15 @@ export declare class UserMessageController {
             createdAt: Date;
             updatedAt: Date;
         };
-        error?: undefined;
     } | {
         success: boolean;
         message: any;
-        error: any;
         data?: undefined;
     }>;
     delete(data: {
         id: string;
     }): Promise<{
         success: boolean;
-        message: string;
-        error?: undefined;
-    } | {
-        success: boolean;
         message: any;
-        error: any;
-    }>;
-    test(): Promise<{
-        success: boolean;
-        message: string;
-        timestamp: string;
     }>;
 }

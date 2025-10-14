@@ -11,9 +11,6 @@ export declare class UserController {
     private readonly updateUserUseCase;
     private readonly deleteUserUseCase;
     constructor(createUserUseCase: CreateUserUseCase, getUserByIdUseCase: GetUserByIdUseCase, getAllUsersUseCase: GetAllUsersUseCase, updateUserUseCase: UpdateUserUseCase, deleteUserUseCase: DeleteUserUseCase);
-    test(): Promise<{
-        message: string;
-    }>;
     create(createUserDto: CreateUserDto): Promise<UserResponseDto>;
     findAll(): Promise<UserResponseDto[]>;
     findOne(id: string): Promise<UserResponseDto>;

@@ -10,13 +10,11 @@ exports.RollbackModule = void 0;
 const common_1 = require("@nestjs/common");
 const rollback_controller_1 = require("./rollback.controller");
 const rollback_service_1 = require("./rollback.service");
-const common_module_1 = require("../../shared/common/common.module");
 let RollbackModule = class RollbackModule {
 };
 exports.RollbackModule = RollbackModule;
 exports.RollbackModule = RollbackModule = __decorate([
     (0, common_1.Module)({
-        imports: [common_module_1.CommonModule],
         controllers: [rollback_controller_1.RollbackController],
         providers: [rollback_service_1.RollbackService],
         exports: [rollback_service_1.RollbackService],

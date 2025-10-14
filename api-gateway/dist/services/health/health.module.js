@@ -10,13 +10,11 @@ exports.HealthModule = void 0;
 const common_1 = require("@nestjs/common");
 const health_controller_1 = require("./health.controller");
 const health_service_1 = require("./health.service");
-const common_module_1 = require("../../shared/common/common.module");
 let HealthModule = class HealthModule {
 };
 exports.HealthModule = HealthModule;
 exports.HealthModule = HealthModule = __decorate([
     (0, common_1.Module)({
-        imports: [common_module_1.CommonModule],
         controllers: [health_controller_1.HealthController],
         providers: [health_service_1.HealthService],
         exports: [health_service_1.HealthService],

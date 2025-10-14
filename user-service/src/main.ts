@@ -1,8 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { Logger } from '@nestjs/common';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  const logger = new Logger('Bootstrap');
+  
   // Create HTTP application
   const app = await NestFactory.create(AppModule);
   
@@ -34,7 +37,7 @@ async function bootstrap() {
   const port = 3002;
   await app.listen(port);
   
-  console.log(`User Service is running on port: ${port}`);
-  console.log('User Service is also running on RabbitMQ queue: user_service_queue');
+  logger.log(`User Service is running on port: ${port}`);
+  logger.log('User Service is also running on RabbitMQ queue: user_service_queue');
 }
 bootstrap();

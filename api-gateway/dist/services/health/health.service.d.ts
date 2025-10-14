@@ -1,16 +1,20 @@
-import { MicroserviceService } from '../../shared/common/services/microservice.service';
-import { ApiResponse } from '../../shared/common/interfaces/microservice.interface';
 export declare class HealthService {
-    private readonly microserviceService;
-    private readonly logger;
-    constructor(microserviceService: MicroserviceService);
-    checkMicroservices(): Promise<{
-        apiGateway: {
-            status: string;
-            timestamp: string;
+    getHealthStatus(): {
+        status: string;
+        timestamp: string;
+        uptime: number;
+    };
+    getDetailedHealthStatus(): {
+        status: string;
+        timestamp: string;
+        uptime: number;
+        memory: NodeJS.MemoryUsage;
+        version: string;
+        platform: NodeJS.Platform;
+        services: {
+            apiGateway: string;
+            userService: string;
+            rabbitmq: string;
         };
-        authService: ApiResponse;
-        userService: ApiResponse;
-    }>;
-    private checkService;
+    };
 }

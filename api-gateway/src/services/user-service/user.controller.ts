@@ -8,8 +8,7 @@ import {
   Param, 
   HttpCode, 
   HttpStatus,
-  HttpException,
-  HttpCode as HttpCodeDecorator
+  HttpException
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto, UserResponseDto } from '../../shared/common/dto/user.dto';
@@ -19,7 +18,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  @HttpCodeDecorator(HttpStatus.CREATED)
+  @HttpCode(HttpStatus.CREATED)
   async create(@Body() createUserDto: CreateUserDto): Promise<UserResponseDto> {
     try {
       return await this.userService.createUser(createUserDto);
@@ -83,7 +82,7 @@ export class UserController {
   }
 
   @Delete(':id')
-  @HttpCodeDecorator(HttpStatus.NO_CONTENT)
+  @HttpCode(HttpStatus.NO_CONTENT)
   async remove(@Param('id') id: string): Promise<void> {
     try {
       await this.userService.deleteUser(id);

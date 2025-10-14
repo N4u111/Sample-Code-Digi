@@ -20,7 +20,6 @@ const get_all_users_usecase_1 = require("../../application/use-cases/user/get-al
 const update_user_usecase_1 = require("../../application/use-cases/user/update-user.usecase");
 const delete_user_usecase_1 = require("../../application/use-cases/user/delete-user.usecase");
 const user_dto_1 = require("../../application/dto/user.dto");
-const microservices_1 = require("@nestjs/microservices");
 let UserController = class UserController {
     constructor(createUserUseCase, getUserByIdUseCase, getAllUsersUseCase, updateUserUseCase, deleteUserUseCase) {
         this.createUserUseCase = createUserUseCase;
@@ -28,11 +27,6 @@ let UserController = class UserController {
         this.getAllUsersUseCase = getAllUsersUseCase;
         this.updateUserUseCase = updateUserUseCase;
         this.deleteUserUseCase = deleteUserUseCase;
-    }
-    async test() {
-        return {
-            message: 'Test message',
-        };
     }
     async create(createUserDto) {
         const user = await this.createUserUseCase.execute(createUserDto);
@@ -55,13 +49,6 @@ let UserController = class UserController {
     }
 };
 exports.UserController = UserController;
-__decorate([
-    (0, microservices_1.MessagePattern)('user.test'),
-    (0, common_1.Get)('test'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], UserController.prototype, "test", null);
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),

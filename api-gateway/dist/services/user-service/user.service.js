@@ -19,14 +19,6 @@ let UserService = UserService_1 = class UserService {
         this.microserviceService = microserviceService;
         this.logger = new common_1.Logger(UserService_1.name);
     }
-    async test() {
-        this.logger.log('Testing user service');
-        const response = await this.microserviceService.sendRequest(microservice_config_1.USER_SERVICE, 'user.create', {}, 10000);
-        if (!response.success) {
-            throw new Error(`Failed to create user: ${response.message}`);
-        }
-        return response.message;
-    }
     async createUser(createUserDto) {
         this.logger.log('Creating user via User Service');
         const response = await this.microserviceService.sendRequest(microservice_config_1.USER_SERVICE, 'user.create', createUserDto, 10000);

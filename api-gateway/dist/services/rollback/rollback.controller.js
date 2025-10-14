@@ -19,55 +19,18 @@ let RollbackController = class RollbackController {
     constructor(rollbackService) {
         this.rollbackService = rollbackService;
     }
-    async restartUserService() {
-        return this.rollbackService.restartUserService();
-    }
-    async checkUserServiceHealth() {
-        return this.rollbackService.checkUserServiceHealth();
-    }
-    async getUserServiceStatus() {
-        return this.rollbackService.getUserServiceStatus();
-    }
-    async rollbackUserOperation(data) {
-        return this.rollbackService.rollbackUserOperation(data);
-    }
-    async syncDataWithUserService(data) {
-        return this.rollbackService.syncDataWithUserService(data);
+    async rollback(rollbackData) {
+        return await this.rollbackService.executeRollback(rollbackData);
     }
 };
 exports.RollbackController = RollbackController;
 __decorate([
-    (0, common_1.Post)('user-service/restart'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], RollbackController.prototype, "restartUserService", null);
-__decorate([
-    (0, common_1.Get)('user-service/health'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], RollbackController.prototype, "checkUserServiceHealth", null);
-__decorate([
-    (0, common_1.Get)('user-service/status'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], RollbackController.prototype, "getUserServiceStatus", null);
-__decorate([
-    (0, common_1.Post)('user-service/rollback-operation'),
+    (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], RollbackController.prototype, "rollbackUserOperation", null);
-__decorate([
-    (0, common_1.Post)('user-service/sync-data'),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], RollbackController.prototype, "syncDataWithUserService", null);
+], RollbackController.prototype, "rollback", null);
 exports.RollbackController = RollbackController = __decorate([
     (0, common_1.Controller)('rollback'),
     __metadata("design:paramtypes", [rollback_service_1.RollbackService])

@@ -16,15 +16,11 @@ let HealthController = class HealthController {
     constructor(healthService) {
         this.healthService = healthService;
     }
-    async getHealth() {
-        return this.healthService.checkMicroservices();
+    check() {
+        return this.healthService.getHealthStatus();
     }
-    async getSimpleHealth() {
-        return {
-            status: 'ok',
-            service: 'api-gateway',
-            timestamp: new Date().toISOString(),
-        };
+    detailedCheck() {
+        return this.healthService.getDetailedHealthStatus();
     }
 };
 exports.HealthController = HealthController;
@@ -32,14 +28,14 @@ __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], HealthController.prototype, "getHealth", null);
+    __metadata("design:returntype", void 0)
+], HealthController.prototype, "check", null);
 __decorate([
-    (0, common_1.Get)('simple'),
+    (0, common_1.Get)('detailed'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], HealthController.prototype, "getSimpleHealth", null);
+    __metadata("design:returntype", void 0)
+], HealthController.prototype, "detailedCheck", null);
 exports.HealthController = HealthController = __decorate([
     (0, common_1.Controller)('health'),
     __metadata("design:paramtypes", [health_service_1.HealthService])

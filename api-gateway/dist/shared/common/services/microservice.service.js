@@ -63,7 +63,6 @@ let MicroserviceService = MicroserviceService_1 = class MicroserviceService {
     async sendRequest(serviceName, pattern, data, timeout = 5000) {
         try {
             const client = this.getClient(serviceName);
-            console.log('serviceName', serviceName);
             const response = await client.send(pattern, data).toPromise();
             this.logger.log(`Request to ${serviceName}:${pattern} - Success`);
             return {

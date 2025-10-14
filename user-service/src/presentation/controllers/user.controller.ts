@@ -27,14 +27,6 @@ export class UserController {
     private readonly deleteUserUseCase: DeleteUserUseCase,
   ) {}
 
-  @MessagePattern('user.test')
-  @Get('test')
-  async test() {
-    return {
-      message: 'Test message',
-    };
-  }
-
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createUserDto: CreateUserDto): Promise<UserResponseDto> {
