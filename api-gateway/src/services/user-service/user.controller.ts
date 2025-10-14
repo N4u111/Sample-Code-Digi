@@ -49,21 +49,6 @@ export class UserController {
     }
   }
 
-  @Get('test')
-  async test(): Promise<string> {
-    try {
-      return await this.userService.test();
-    } catch (error) {
-      throw new HttpException(
-        {
-          message: 'Failed to test',
-          error: error.message,
-        },
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
-  }
-
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<UserResponseDto> {
     try {

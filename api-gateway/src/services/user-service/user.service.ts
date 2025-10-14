@@ -9,22 +9,6 @@ export class UserService {
 
   constructor(private readonly microserviceService: MicroserviceService) {}
 
-  async test(): Promise<string> {
-    this.logger.log('Testing user service');
-    const response = await this.microserviceService.sendRequest(
-      USER_SERVICE,
-      'user.create',
-      {},
-      10000, // 10 second timeout
-    );
-
-    if (!response.success) {
-      throw new Error(`Failed to create user: ${response.message}`);
-    }
-
-    return response.message;
-  }
-
   async createUser(createUserDto: CreateUserDto): Promise<UserResponseDto> {
     this.logger.log('Creating user via User Service');
     

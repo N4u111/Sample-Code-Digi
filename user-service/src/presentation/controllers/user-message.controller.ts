@@ -106,12 +106,4 @@ export class UserMessageController {
     }
   }
 
-  @MessagePattern('user.test')
-  async test() {
-    return {
-      success: true,
-      message: 'Test message from RabbitMQ',
-      timestamp: new Date().toISOString(),
-    };
-  }
 }
