@@ -11,19 +11,13 @@ export class CreateRoleDto {
 }
 
 export class UpdateRoleDto {
-  @IsString()
   @IsOptional()
+  @IsString()
   name?: string;
 
-  @IsString()
   @IsOptional()
-  slug?: string;
-}
-
-export class GetRoleByIdDto {
   @IsString()
-  @IsNotEmpty()
-  id: string;
+  slug?: string;
 }
 
 export class RoleResponseDto {
@@ -32,4 +26,21 @@ export class RoleResponseDto {
   slug: string;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export class RoleListResponseDto {
+  success: boolean;
+  message: string;
+  data: {
+    roles: RoleResponseDto[];
+    total: number;
+  };
+}
+
+export class RoleDetailResponseDto {
+  success: boolean;
+  message: string;
+  data: {
+    role: RoleResponseDto;
+  };
 }

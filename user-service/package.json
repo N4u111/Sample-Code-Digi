@@ -23,8 +23,7 @@
     "prisma:studio": "prisma studio",
     "prisma:deploy": "prisma migrate deploy",
     "prisma:seed": "ts-node --project prisma/tsconfig.json prisma/seed.ts",
-    "db:seed": "npm run prisma:seed",
-    "test:crud": "node test-crud-api.js"
+    "db:seed": "npm run prisma:seed"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

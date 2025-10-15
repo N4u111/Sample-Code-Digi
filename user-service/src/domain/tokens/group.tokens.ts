@@ -1,0 +1,1 @@
+export const GROUP_REPOSITORY = 'GROUP_REPOSITORY';

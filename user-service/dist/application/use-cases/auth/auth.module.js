@@ -14,11 +14,13 @@ const forgot_password_usecase_1 = require("./forgot-password.usecase");
 const reset_password_usecase_1 = require("./reset-password.usecase");
 const validate_token_usecase_1 = require("./validate-token.usecase");
 const refresh_token_usecase_1 = require("./refresh-token.usecase");
+const infrastructure_module_1 = require("../../../infrastructure/infrastructure.module");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
 exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
+        imports: [infrastructure_module_1.InfrastructureModule],
         providers: [
             register_usecase_1.RegisterUseCase,
             login_usecase_1.LoginUseCase,

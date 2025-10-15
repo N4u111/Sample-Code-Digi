@@ -1,6 +1,6 @@
-import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsUUID } from 'class-validator';
 
-export class CreateGroupDto {
+export class CreateRoleDto {
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -10,17 +10,17 @@ export class CreateGroupDto {
   slug: string;
 }
 
-export class UpdateGroupDto {
-  @IsOptional()
+export class UpdateRoleDto {
   @IsString()
+  @IsOptional()
   name?: string;
 
-  @IsOptional()
   @IsString()
+  @IsOptional()
   slug?: string;
 }
 
-export class GroupResponseDto {
+export class RoleResponseDto {
   id: string;
   name: string;
   slug: string;
@@ -28,19 +28,19 @@ export class GroupResponseDto {
   updatedAt: Date;
 }
 
-export class GroupListResponseDto {
+export class RoleListResponseDto {
   success: boolean;
   message: string;
   data: {
-    groups: GroupResponseDto[];
+    roles: RoleResponseDto[];
     total: number;
   };
 }
 
-export class GroupDetailResponseDto {
+export class RoleDetailResponseDto {
   success: boolean;
   message: string;
   data: {
-    group: GroupResponseDto;
+    role: RoleResponseDto;
   };
 }
